@@ -1,4 +1,3 @@
-local TsUtils = require "nvim-treesitter.ts_utils"
 local Table = require "md-table-tidy.table"
 
 ---@class TableTidy.Parser
@@ -88,7 +87,7 @@ function Parser.closest(targetType)
   if tree then
     tree:parse()
   end
-  local node = TsUtils.get_node_at_cursor()
+  local node = vim.treesitter.get_node()
   while node do
     if node:type() == targetType then
       return node
